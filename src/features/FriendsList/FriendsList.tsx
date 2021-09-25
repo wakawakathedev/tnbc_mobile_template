@@ -3,10 +3,10 @@ import {Text} from 'react-native'
 
 import {Card} from '@ui/Card'
 
-export const FriendList = () => {
+export const FriendsList: React.FC = () => {
   return (
     <Card>
-      <Text>FriendList</Text>
+      <Text>FriendsList</Text>
     </Card>
   )
 }

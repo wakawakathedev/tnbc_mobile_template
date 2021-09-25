@@ -3,9 +3,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack'
 
 import {Routes} from './Routes'
 
-import {AccountOverviewScreen} from '../views/Accounts/AccountOverview'
-import {CreateAccountScreen} from '../views/Accounts/CreateAccountScreen'
-import {SendCoinsScreen} from '../views/Accounts/SendCoinsScreen'
+import {AccountOverviewScreen} from '../views/Accounts/AccountOverviewScreen'
 
 const Stack = createNativeStackNavigator()
 

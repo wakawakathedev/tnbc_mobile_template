@@ -9,7 +9,7 @@ import {Text} from 'react-native'
 
 import {Card} from '@ui/Card'
 
-export const AccountBalance = () => {
+export const AccountBalance: React.FC = () => {
   return (
     <Card>
       <Text>AccountBalance</Text>

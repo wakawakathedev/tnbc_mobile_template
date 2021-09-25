@@ -11,7 +11,7 @@
 
  import {Card} from '@ui/Card'
 
-export const TransactionsList = () => {
+export const TransactionsList: React.FC = () => {
   return (
     <Card>
       <Text>Recent Transactions</Text>

@@ -3,9 +3,9 @@ import {NavigationContainer} from '@react-navigation/native'
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs'
 
 import {Routes} from './Routes'
-import {HelloWorldScreen} from '../views/HelloWorldScreen'
-import {AccountOverviewScreen} from '../views/Accounts/AccountOverview'
-import {MoreInfoScreen} from '../views/MoreInfoScreen'
+// import {HelloWorldScreen} from '../views/HelloWorldScreen'
+// import {AccountOverviewScreen} from '../views/Accounts/AccountOverview'
+// import {MoreInfoScreen} from '../views/MoreInfoScreen'
 
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import {AccountStackNavigator} from './AccountStackNavigator'
@@ -24,14 +24,17 @@ enum Icons {
   Home = 'home-outline',
   Account = 'wallet-outline',
   Help = 'settings-outline',
+  Camera = 'camera',
 }
 
 const pickIconName = (routeName: string) => {
   switch (routeName) {
     case Routes.Home:
       return Icons.Home
-    case Routes.AccountStack:
-      return Icons.Account
+    // case Routes.AccountStack:
+    //   return Icons.Account
+    case Routes.Camera:
+      return Icons.Camera
     default:
       return Icons.Help
   }
@@ -46,13 +49,19 @@ export const RootNavigator = () => (
           return <Ionicons name={iconName} size={20} />
         },
       })}>
-      <Tab.Screen name={Routes.Home} component={HelloWorldScreen} />
       <Tab.Screen
-        name={Routes.AccountStack}
+        name={Routes.Home}
         component={AccountStackNavigator}
         options={{headerShown: false, unmountOnBlur: true}}
       />
-      <Tab.Screen name={Routes.About} component={MoreInfoScreen} />
+      {/* <Tab.Screen
+        name={Routes.AccountStack}
+        component={AccountStackNavigator}
+        options={{headerShown: false, unmountOnBlur: true}}
+      /> */}
+      {/* <Tab.Screen name={Routes.Home} component={HelloWorldScreen} />
+      <Tab.Screen name={Routes.Camera} component={HelloWorldScreen} />
+      <Tab.Screen name={Routes.About} component={MoreInfoScreen} /> */}
     </Tab.Navigator>
   </NavigationContainer>
 )

@@ -8,6 +8,7 @@ export enum Routes {
 
   About = "About",
 
+  Camera = "Camera",
 }
 
 export type AccountStackParams = {

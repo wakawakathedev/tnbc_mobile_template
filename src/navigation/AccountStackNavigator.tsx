@@ -16,11 +16,6 @@ export const AccountStackNavigator = () => {
         name={Routes.AccountOverview}
         component={AccountOverviewScreen}
       />
-      <Stack.Screen
-        name={Routes.CreateAccount}
-        component={CreateAccountScreen}
-      />
-      <Stack.Screen name={Routes.SendCoins} component={SendCoinsScreen} />
     </Stack.Navigator>
   )
 }

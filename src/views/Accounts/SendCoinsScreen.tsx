@@ -4,13 +4,14 @@ import {NativeStackScreenProps} from '@react-navigation/native-stack'
 
 import {Account} from 'thenewboston'
 
+import {config} from '../../../config'
 import {Button} from '../../ui/Button'
 import {TemplateScreen} from '../utils/TemplateScreen'
 import {AccountStackParams} from '../../navigation/Routes'
 
 type Props = NativeStackScreenProps<AccountStackParams, 'SendCoins'>
 
-const BANK_URL = 'http://20.98.98.0'
+const BANK_URL = `${config.network.Testnet.PRIMARY_BANK.protocol}://${config.network.Testnet.PRIMARY_BANK.ip_address}`
 
 // WIP Screen
 export const SendCoinsScreen = ({navigation}: Props) => {

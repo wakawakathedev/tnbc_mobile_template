@@ -10,8 +10,9 @@ module.exports = {
           ".tsx"
         ],
         "alias": {
-          "@navigation": "./src/navigation",
+          "@config": "./src/config/index.ts",
           "@features": "./src/features",
+          "@navigation": "./src/navigation",
           "@views": "./src/views",
           "@ui": "./src/ui",
         }

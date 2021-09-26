@@ -12,6 +12,7 @@
     "strict": true,
     "moduleResolution": "node",
     "paths": {
+      "@config": ["./src/config/index.ts"],
       "@features/*": ["./src/features/*"],
       "@navigation/*": ["./src/navigation/*"],
       "@ui/*": ["./src/ui/*"],

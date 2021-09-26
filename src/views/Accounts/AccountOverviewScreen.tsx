@@ -10,16 +10,12 @@ import {Routes, AccountStackParams} from '@navigation/Routes'
 import {CardContainer} from '@ui/Card'
 import {TemplateScreen} from '../utils/TemplateScreen'
 
-
 type Props = NativeStackScreenProps<AccountStackParams, 'AccountOverview'>
 
-// type Route = Routes.CreateAccount | Routes.SendCoins
 /**
  * - send coins, set bank, set memo
  * - use qr code for public address
  */
-
-
 
 export const AccountOverviewScreen = ({navigation}: Props) => {
   return (

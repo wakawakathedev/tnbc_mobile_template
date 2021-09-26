@@ -6,6 +6,11 @@ There are some minor getting started issues with the mobile wallet (as of 03-Sep
 
 **Note:** This repo is a work in progress. (proof-of-concept)
 
+### App Features:
+
+![App-Features](./docs/app-features.png)
+
+
 ## Getting Started
 
 Yarn

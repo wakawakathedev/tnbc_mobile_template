@@ -1,16 +1,18 @@
 import {NativeStackScreenProps} from '@react-navigation/native-stack'
 import React from 'react'
-import {Text, View} from 'react-native'
+import {View} from 'react-native'
 
 import {AccountBalance} from '@features/AccountBalance'
 import {FriendsList} from '@features/FriendsList'
 import {NetworkStatus} from '@features/NetworkStatus'
 import {TransactionsList} from '@features/TransactionsList'
-import {Routes, AccountStackParams} from '@navigation/Routes'
+import {AccountStackParams} from '@navigation/Routes'
 import {CardContainer} from '@ui/Card'
-import {TemplateScreen} from '../utils/TemplateScreen'
+import {TemplateScreen} from '@views/utils/TemplateScreen'
 
 type Props = NativeStackScreenProps<AccountStackParams, 'AccountOverview'>
+
+import {styles} from './styles'
 
 /**
  * - send coins, set bank, set memo
@@ -20,8 +22,7 @@ type Props = NativeStackScreenProps<AccountStackParams, 'AccountOverview'>
 export const AccountOverviewScreen = ({navigation}: Props) => {
   return (
     <TemplateScreen>
-      <View style={{ paddingVertical: 10, paddingHorizontal: 10 }}>
-
+      <View style={styles.accountOverviewScreen}>
         <CardContainer>
           <NetworkStatus />
         </CardContainer>

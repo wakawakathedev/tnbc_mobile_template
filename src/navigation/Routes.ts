@@ -1,14 +1,18 @@
 export enum Routes {
   Home = "Home",
-  CreateAccount = "CreateAccount",
 
   AccountStack = "Account",
   AccountOverview = "AccountOverview",
-  SendCoins = "SendCoins",
-
-  About = "About",
 
   Camera = "Camera",
+
+  About = "About",
+  AboutStack = "AboutSack",
+  CreateAccount = "CreateAccount",
+  SendCoins = "SendCoins",
+
+
+  MoreInfo = "MoreInfo"
 }
 
 export type AccountStackParams = {

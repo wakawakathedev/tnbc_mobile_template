@@ -3,7 +3,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack'
 
 import {Routes} from './Routes'
 
-import {AccountOverviewScreen} from '../views/Accounts/AccountOverviewScreen'
+import {AccountOverviewScreen} from '../views/Accounts/AccountOverviewScreen/AccountOverviewScreen'
 
 const Stack = createNativeStackNavigator()
 

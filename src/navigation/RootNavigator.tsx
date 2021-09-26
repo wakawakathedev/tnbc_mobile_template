@@ -10,6 +10,9 @@ import {Routes} from './Routes'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import {AccountStackNavigator} from './AccountStackNavigator'
 
+import {AboutScreen} from '@views/About'
+import {AboutStackNavigator} from './AboutNavigator'
+
 const Tab = createBottomTabNavigator()
 
 // TODO:
@@ -52,16 +55,18 @@ export const RootNavigator = () => (
       <Tab.Screen
         name={Routes.Home}
         component={AccountStackNavigator}
-        options={{headerShown: false, unmountOnBlur: true}}
+        options={{headerShown: false, unmountOnBlur: false}}
+        listeners={({navigation}) => ({
+          tabPress: e => {
+            navigation.navigate('Home')
+          },
+        })}
       />
-      {/* <Tab.Screen
-        name={Routes.AccountStack}
-        component={AccountStackNavigator}
-        options={{headerShown: false, unmountOnBlur: true}}
-      /> */}
-      {/* <Tab.Screen name={Routes.Home} component={HelloWorldScreen} />
-      <Tab.Screen name={Routes.Camera} component={HelloWorldScreen} />
-      <Tab.Screen name={Routes.About} component={MoreInfoScreen} /> */}
+      <Tab.Screen
+        name={Routes.AboutStack}
+        component={AboutStackNavigator}
+        options={{headerShown: false, unmountOnBlur: false}}
+      />
     </Tab.Navigator>
   </NavigationContainer>
 )

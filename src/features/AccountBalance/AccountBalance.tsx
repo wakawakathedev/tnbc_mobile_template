@@ -4,15 +4,21 @@
  * - show/hide total balance
  */
 
-import React from 'react'
-import {Text} from 'react-native'
+import React, {useState} from 'react'
+import {Pressable, Text, View} from 'react-native'
 
 import {Card} from '@ui/Card'
 
 export const AccountBalance: React.FC = () => {
+  const [isShown, toggleShow] = useState<boolean>(false)
   return (
-    <Card>
-      <Text>AccountBalance</Text>
+    <Card
+      isShown={isShown}
+      toggleShow={toggleShow}
+      title={<Text>AccountBalance</Text>}>
+      <View>
+        <Text>Hello</Text>
+      </View>
     </Card>
   )
 }

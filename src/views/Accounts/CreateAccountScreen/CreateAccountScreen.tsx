@@ -3,9 +3,9 @@ import {Pressable, StyleSheet, Text, View} from 'react-native'
 import EncryptedStorage from 'react-native-encrypted-storage'
 
 import {Account} from 'thenewboston'
-import {TemplateScreen} from '../utils/TemplateScreen'
-import {FlatUIColors} from '../../ui/Colors'
-import {Button} from '../../ui/Button'
+import {Button} from '@ui/Button'
+import {FlatUIColors} from '@ui/Colors'
+import {TemplateScreen} from '@views/utils/TemplateScreen'
 
 type AccountNumber = string | undefined
 type Key = string | undefined

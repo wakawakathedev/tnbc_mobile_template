@@ -4,10 +4,10 @@ import {NativeStackScreenProps} from '@react-navigation/native-stack'
 
 import {Account} from 'thenewboston'
 
-import {config} from '../../../config'
-import {Button} from '../../ui/Button'
-import {TemplateScreen} from '../utils/TemplateScreen'
-import {AccountStackParams} from '../../navigation/Routes'
+import {config} from '@config'
+import {AccountStackParams} from '@navigation/Routes'
+import {Button} from '@ui/Button'
+import {TemplateScreen} from '@views/utils/TemplateScreen/TemplateScreen'
 
 type Props = NativeStackScreenProps<AccountStackParams, 'SendCoins'>
 

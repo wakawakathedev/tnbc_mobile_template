@@ -13,6 +13,7 @@ module.exports = {
           "@config": "./src/config/index.ts",
           "@features": "./src/features",
           "@navigation": "./src/navigation",
+          "@store": "./src/store",
           "@views": "./src/views",
           "@ui": "./src/ui",
         }

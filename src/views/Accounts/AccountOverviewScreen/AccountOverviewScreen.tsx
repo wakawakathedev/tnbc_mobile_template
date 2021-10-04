@@ -1,6 +1,6 @@
 import {NativeStackScreenProps} from '@react-navigation/native-stack'
 import React from 'react'
-import {View} from 'react-native'
+import {ScrollView, View} from 'react-native'
 
 import {AccountBalance} from '@features/AccountBalance'
 import {FriendsList} from '@features/FriendsList'
@@ -22,23 +22,25 @@ import {styles} from './styles'
 export const AccountOverviewScreen = ({navigation}: Props) => {
   return (
     <TemplateScreen>
-      <View style={styles.accountOverviewScreen}>
-        <CardContainer>
-          <NetworkStatus />
-        </CardContainer>
+      <ScrollView>
+        <View style={styles.accountOverviewScreen}>
+          <CardContainer>
+            <NetworkStatus />
+          </CardContainer>
 
-        <CardContainer>
-          <FriendsList />
-        </CardContainer>
+          <CardContainer>
+            <FriendsList />
+          </CardContainer>
 
-        <CardContainer>
-          <AccountBalance />
-        </CardContainer>
+          <CardContainer>
+            <AccountBalance />
+          </CardContainer>
 
-        <CardContainer>
-          <TransactionsList />
-        </CardContainer>
-      </View>
+          <CardContainer>
+            <TransactionsList />
+          </CardContainer>
+        </View>
+      </ScrollView>
     </TemplateScreen>
   )
 }

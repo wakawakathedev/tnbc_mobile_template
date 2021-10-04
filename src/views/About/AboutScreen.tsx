@@ -1,10 +1,8 @@
 import {NativeStackScreenProps} from '@react-navigation/native-stack'
-import React, {useEffect, useState} from 'react'
+import React from 'react'
 import {FlatList, Pressable, Text, View} from 'react-native'
-import EncryptedStorage from 'react-native-encrypted-storage'
 import Icon from 'react-native-vector-icons/Feather'
 
-import {Button} from '../../ui/Button'
 import {TemplateScreen} from '../utils/TemplateScreen/TemplateScreen'
 import {Routes, AccountStackParams} from '../../navigation/Routes'
 import {styles} from '../Accounts/styles'
@@ -20,16 +18,20 @@ type AboutItem = {
 
 const AboutItems: AboutItem[] = [
   {
+    title: 'Import Account',
+    destination: Routes.ImportAccount,
+  },
+  {
     title: 'Create Account',
     destination: Routes.CreateAccount,
   },
   {
-    title: 'Send Coins',
-    destination: Routes.SendCoins,
+    title: 'Export Account',
+    destination: Routes.ExportAccount,
   },
   {
-    title: 'More Info',
-    destination: Routes.MoreInfo,
+    title: 'Send Coins',
+    destination: Routes.SendCoins,
   },
 ]
 
@@ -52,67 +54,6 @@ const AboutItems: AboutItem[] = [
  * - send coins, set bank, set memo
  * - use qr code for public address
  */
-
-// export const AccountOverviewScreen = ({navigation}: Props) => {
-//   const [accounts, setAccounts] = useState<any>(undefined)
-//   const navigateTo = (destination: Route) => {
-//     navigation.navigate(destination)
-//   }
-
-//   const clearAccounts = async () => {
-//     try {
-//       await EncryptedStorage.clear()
-//       setAccounts(undefined)
-//     } catch (error) {
-//       // handle error
-//     }
-//   }
-//   const retrieveAccounts = async () => {
-//     try {
-//       const _data = await EncryptedStorage.getItem('accounts')
-//       setAccounts(_data)
-//     } catch (error) {
-//       // There was an error on the native side
-//     }
-//   }
-
-//   useEffect(() => {
-//     retrieveAccounts()
-//   }, [accounts])
-
-//   const AccountItem = ({item}: {item: AccountItem}) => {
-//     return (
-//       <Pressable
-//         onPress={() => navigateTo(item.destination)}
-//         style={({pressed}) => [{opacity: pressed ? 0.5 : 1}, styles.button]}>
-//         <Text style={styles.buttonText}>{item.title}</Text>
-//         <Icon
-//           name="chevron-right"
-//           size={20}
-//           style={{display: 'flex', alignSelf: 'flex-end'}}
-//         />
-//       </Pressable>
-//     )
-//   }
-//   return (
-//     <TemplateScreen>
-//       <View
-//         style={{
-//           flexDirection: 'column',
-//         }}>
-//       </View>
-//       <FlatList
-//         data={AccountItems}
-//         renderItem={AccountItem}
-//         style={{
-//           display: 'flex',
-//           height: '100%',
-//         }}
-//       />
-//     </TemplateScreen>
-//   )
-// }
-
 interface AboutItemProps {
   item: AboutItem
   navigation: any
@@ -133,6 +74,17 @@ const AboutItem = ({item, navigation}: AboutItemProps) => {
   )
 }
 
+const MoreInfoCard = () => (
+  <View style={{padding: 20}}>
+    <View style={{padding: 10, borderWidth: 1, borderColor: 'red'}}>
+      <Text>
+        This template was created with ♥ by wakawakathedev on behalf of tnbcrow
+        in 2021.
+      </Text>
+    </View>
+  </View>
+)
+
 export const AboutScreen = () => {
   const navigation = useNavigation()
 
@@ -142,6 +94,7 @@ export const AboutScreen = () => {
         data={AboutItems}
         renderItem={({item}) => AboutItem({item, navigation})}
       />
+      <MoreInfoCard />
     </TemplateScreen>
   )
 }

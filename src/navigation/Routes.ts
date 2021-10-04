@@ -9,6 +9,8 @@ export enum Routes {
   About = "About",
   AboutStack = "AboutSack",
   CreateAccount = "CreateAccount",
+  ExportAccount = "ExportAccount",
+  ImportAccount = "ImportAccount",
   SendCoins = "SendCoins",
 
 

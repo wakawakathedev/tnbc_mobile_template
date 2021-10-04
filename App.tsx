@@ -1,13 +1,18 @@
 import React from 'react'
-import {View} from 'react-native'
-import {RootNavigator} from './src/navigation/RootNavigator'
+import {Provider} from 'react-redux'
+import {RootNavigator} from '@navigation/RootNavigator'
+import {store} from './src/store'
 
 /**
  * todo:
  * add login/auth (passcode/biometric)
  */
 const App = () => {
-  return <RootNavigator></RootNavigator>
+  return (
+    <Provider store={store}>
+      <RootNavigator></RootNavigator>
+    </Provider>
+  )
 }
 
 export default App

@@ -6,7 +6,7 @@ import {Account} from 'thenewboston'
 import {Button} from '@ui/Button'
 import {TemplateScreen} from '@views/utils/TemplateScreen'
 import {RootState} from '@store/store'
-import {addAccount} from '@features/Accounts/AccountSlice'
+import {addAccount} from '@store/Accounts/AccountsSlice'
 
 /**
  * Todo
@@ -15,9 +15,7 @@ import {addAccount} from '@features/Accounts/AccountSlice'
 
 export const ExportAccountScreen = () => {
   const [isEncrypted, toggleEncryption] = useState<boolean>(false)
-  const accounts = useSelector(
-    (state: RootState) => state.userAccounts.accounts,
-  )
+  const accounts = useSelector((state: RootState) => state.accounts)
   const dispatch = useDispatch()
 
   const exportAccount = () => {

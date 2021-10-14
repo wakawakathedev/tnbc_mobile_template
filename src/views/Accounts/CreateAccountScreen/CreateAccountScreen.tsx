@@ -1,12 +1,11 @@
 import React from 'react'
 import {View} from 'react-native'
-import {useSelector, useDispatch} from 'react-redux'
+import {useDispatch} from 'react-redux'
 
 import {Account} from 'thenewboston'
 import {Button} from '@ui/Button'
 import {TemplateScreen} from '@views/utils/TemplateScreen'
-import {RootState} from '@store/store'
-import {addAccount} from '@features/Accounts/AccountSlice'
+import {addAccount} from '@store/Accounts/AccountsSlice'
 
 /**
  * Todo

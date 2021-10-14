@@ -18,6 +18,7 @@
       "@store/*": ["./src/store/*"],
       "@views/*": ["./src/views/*"],
       "@ui/*": ["./src/ui/*"],
+      "@utils": ["./src/utils"],
     },
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,

@@ -6,16 +6,12 @@ import {Account} from 'thenewboston'
 import {Button} from '@ui/Button'
 
 import {TemplateScreen} from '@views/utils/TemplateScreen'
-import {RootState} from '@store/store'
-import {addAccount} from '@features/Accounts/AccountSlice'
+import {addAccount} from '@store/Accounts/AccountsSlice'
 
 export const ImportAccountScreen = () => {
   const [importKey, setImportKey] = useState<string>('')
   const [nickname, setNickname] = useState<string>('')
 
-  const accounts = useSelector(
-    (state: RootState) => state.userAccounts.accounts,
-  )
   const dispatch = useDispatch()
 
   const importAccount = () => {

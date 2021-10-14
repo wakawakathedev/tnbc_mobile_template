@@ -1,0 +1,1 @@
+export const formatUrl = (protocol: string, address: string) => `${protocol}://${address}`

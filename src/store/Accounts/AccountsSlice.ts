@@ -1,8 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 type Account = {
-  publicKey: string,
-  privateKey: string,
+  publicKey: string
+  privateKey: string
   nickname: string
 }
 
@@ -13,32 +13,28 @@ type AccountPayload = {
 
 
 export interface AccountsSlice {
-  accounts: {
-    [key: string]: Account
-  }
+  [key: string]: Account
 }
 
-const initialState: AccountsSlice = {
-  accounts: {}
-}
+const initialState: AccountsSlice = {}
 
-export const accountSlice = createSlice({
-  name: 'userAccounts',
+export const accountsSlice = createSlice({
+  name: 'accounts',
   initialState,
   reducers: {
     addAccount: (state, action: PayloadAction<AccountPayload>) => {
-      state.accounts[action.payload.key] = action.payload.account
+      state[action.payload.key] = action.payload.account
     },
     removeAll: (state) => {
-      state.accounts = {}
+      state = {}
     },
     removeAccount: (state, action: PayloadAction<string>) => {
-      delete state.accounts[action.payload]
+      delete state[action.payload]
     },
   },
 })
 
 // Action creators are generated for each case reducer function
-export const { addAccount } = accountSlice.actions
+export const { addAccount } = accountsSlice.actions
 
-export default accountSlice.reducer
+export default accountsSlice.reducer

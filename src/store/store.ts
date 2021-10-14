@@ -1,10 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit'
-import accountReducer from '@features/Accounts/AccountSlice'
+
+import accountsReducer from '@store/Accounts/AccountsSlice'
+import networksReducer from '@store/Networks/NetworksSlice'
 
 
 export const store = configureStore({
   reducer: {
-    userAccounts: accountReducer
+    accounts: accountsReducer,
+    networks: networksReducer,
   }
 })
 

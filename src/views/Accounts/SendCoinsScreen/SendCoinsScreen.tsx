@@ -8,10 +8,13 @@ import {config} from '@config'
 import {AccountStackParams} from '@navigation/Routes'
 import {Button} from '@ui/Button'
 import {TemplateScreen} from '@views/utils/TemplateScreen/TemplateScreen'
+import {formatUrl} from '@utils'
 
 type Props = NativeStackScreenProps<AccountStackParams, 'SendCoins'>
 
-const BANK_URL = `${config.network.Testnet.PRIMARY_BANK.protocol}://${config.network.Testnet.PRIMARY_BANK.ip_address}`
+// setup bankUrl
+const {protocol, address} = config.networks.Testnet.PRIMARY_BANK
+const BANK_URL = formatUrl(protocol, address)
 
 // WIP Screen
 export const SendCoinsScreen = ({navigation}: Props) => {

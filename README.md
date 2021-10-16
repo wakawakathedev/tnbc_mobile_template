@@ -1,8 +1,8 @@
-# tnbc mobile wallet - typescript template
+# tnbc mobile wallet - typescript alpha template
 
 This is a thenewboston SDK integration sample template with react native.
 
-There are some minor getting started issues with the mobile wallet (as of 03-September-2021) which block development.
+There are some minor getting started issues with the mobile wallet (as of 03-September-2021) which blocks development.
 
 **Note:** This repo is a work in progress. (proof-of-concept)
 
@@ -58,6 +58,7 @@ npx react-native-rename "<YOUR_PROJECT_NAME>"
 
 ### Other helpful notes.
 I've included the npm command `yarn android-clean` but this currently would only work on mac.
+You can use `npx react-native-clean-project` to do a clean setup.
 
 ### License
 MIT

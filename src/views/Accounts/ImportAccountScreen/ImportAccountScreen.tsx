@@ -6,7 +6,8 @@ import {Account} from 'thenewboston'
 import {Button} from '@ui/Button'
 
 import {TemplateScreen} from '@views/utils/TemplateScreen'
-import {addAccount} from '@store/Accounts/AccountsSlice'
+
+import {storeAccountToEncryptedStorage} from '@store/Accounts/AccountsSlice'
 
 export const ImportAccountScreen = () => {
   const [importKey, setImportKey] = useState<string>('')
@@ -14,19 +15,19 @@ export const ImportAccountScreen = () => {
 
   const dispatch = useDispatch()
 
-  const importAccount = () => {
+  const importAccount = async () => {
     const account = new Account(importKey)
 
-    dispatch(
-      addAccount({
-        key: account.accountNumberHex,
-        account: {
-          publicKey: account.accountNumberHex,
-          privateKey: account.signingKeyHex,
-          nickname: nickname,
-        },
-      }),
-    )
+    const accountPayload = {
+      key: account.accountNumberHex,
+      account: {
+        publicKey: account.accountNumberHex,
+        privateKey: account.signingKeyHex,
+        nickname: nickname,
+      },
+    }
+
+    await dispatch(storeAccountToEncryptedStorage(accountPayload))
   }
 
   return (

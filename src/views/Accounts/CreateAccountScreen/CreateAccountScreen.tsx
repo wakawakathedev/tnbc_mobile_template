@@ -1,11 +1,17 @@
 import React from 'react'
-import {View} from 'react-native'
-import {useDispatch} from 'react-redux'
+import {Text, View} from 'react-native'
+import {useDispatch, useSelector} from 'react-redux'
 
 import {Account} from 'thenewboston'
 import {Button} from '@ui/Button'
 import {TemplateScreen} from '@views/utils/TemplateScreen'
-import {addAccount} from '@store/Accounts/AccountsSlice'
+import {
+  clearAccounts,
+  storeAccountToEncryptedStorage,
+  fetchEncryptedAccounts,
+} from '@store/Accounts/AccountsSlice'
+
+import {RootState} from '@store/store'
 
 /**
  * Todo
@@ -16,19 +22,28 @@ import {addAccount} from '@store/Accounts/AccountsSlice'
 export const CreateAccountScreen = () => {
   const dispatch = useDispatch()
 
-  const createAccount = () => {
+  const accounts = useSelector((state: RootState) => state.accounts)
+
+  const createAccount = async () => {
     const account = new Account()
 
-    dispatch(
-      addAccount({
-        key: account.accountNumberHex,
-        account: {
-          publicKey: account.accountNumberHex,
-          privateKey: account.signingKeyHex,
-          nickname: '',
-        },
-      }),
-    )
+    const accountPayload = {
+      key: account.accountNumberHex,
+      account: {
+        publicKey: account.accountNumberHex,
+        privateKey: account.signingKeyHex,
+        nickname: '',
+      },
+    }
+    await dispatch(storeAccountToEncryptedStorage(accountPayload))
+  }
+
+  const fetchAccounts = async () => {
+    await dispatch(fetchEncryptedAccounts())
+  }
+
+  const clear = async () => {
+    await dispatch(clearAccounts())
   }
 
   return (
@@ -36,6 +51,11 @@ export const CreateAccountScreen = () => {
       <>
         <View style={{padding: 10}}>
           <Button onPress={createAccount} title="Create Account" />
+
+          <Button onPress={fetchAccounts} title="fetchAccounts" />
+          <Button onPress={clear} title="clear" />
+
+          <Text>{JSON.stringify(accounts, null, 2)}</Text>
         </View>
       </>
     </TemplateScreen>

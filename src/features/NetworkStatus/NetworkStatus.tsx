@@ -15,7 +15,7 @@ import {useNetworkStatus} from './hooks'
 
 export const NetworkStatus: React.FC = () => {
   const [isShown, toggleShow] = useState<boolean>(false)
-  const {networkStatus, isLoading} = useNetworkStatus()
+  const {networkStatus, isLoading, nickname} = useNetworkStatus()
 
   const networks = useSelector((state: RootState) => state.networks)
   return (
@@ -23,9 +23,12 @@ export const NetworkStatus: React.FC = () => {
       isShown={isShown}
       toggleShow={toggleShow}
       title={
-        <Text>
-          Network Status {isLoading ? '⏳' : networkStatus ? '👍' : '😭'}
-        </Text>
+        <>
+          <Text>Network: {nickname}</Text>
+          <Text style={{fontSize: 12}}>
+            Status {isLoading ? '⏳' : networkStatus ? '✅' : '⛔️'}
+          </Text>
+        </>
       }>
       <Text>{JSON.stringify(networks)}</Text>
     </Card>

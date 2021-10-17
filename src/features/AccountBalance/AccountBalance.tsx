@@ -26,10 +26,10 @@ export const AccountBalance: React.FC = () => {
     const primaryValidator = new PrimaryValidator(url)
 
     // networks
-    const response = await primaryValidator.getAccountBalance('')
-    if (response?.balance) {
-      setBalance(response.balance)
-    }
+    // const response = await primaryValidator.getAccountBalance('')
+    // if (response?.balance) {
+    //   setBalance(response.balance)
+    // }
   }
 
   useEffect(() => {
@@ -40,9 +40,16 @@ export const AccountBalance: React.FC = () => {
     <Card
       isShown={isShown}
       toggleShow={toggleShow}
-      title={<Text>AccountBalance: {balance}</Text>}>
+      title={
+        <>
+          <Text>AccountBalance: {balance}</Text>
+          <Text style={{fontSize: 10}}>
+            Number of Accounts Loaded: {Object.keys(accounts).length}
+          </Text>
+        </>
+      }>
       <View>
-        <Text>{JSON.stringify(accounts)}</Text>
+        <Text>{Object.keys(accounts).length}</Text>
       </View>
     </Card>
   )

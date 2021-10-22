@@ -18,36 +18,55 @@ const BANK_URL = formatUrl(protocol, address)
 
 // WIP Screen
 export const SendCoinsScreen = ({navigation}: Props) => {
-  const [amount, setAmount] = useState(undefined)
-  const [recipientAddress, setRecipientAddress] = useState(undefined)
+  const [amount, setAmount] = useState<string | undefined>(undefined)
+  const [recipientAddress, setRecipientAddress] = useState<string | undefined>(
+    undefined,
+  )
   const [loading, setLoading] = useState(false)
 
   const sendCoins = async () => {
-    setLoading(true)
+    // setLoading(true)
   }
 
   return (
     <TemplateScreen>
       <>
-        <View>
-          <Text>Set Bank</Text>
+        <View style={{padding: 10}}>
+          <Text>Current Bank</Text>
           <TextInput value={BANK_URL} editable={false} />
         </View>
-        <View>
-          <Text>Set amount</Text>
+
+        <View style={{padding: 10}}>
+          <Text>Recipent</Text>
           <TextInput
-            keyboardType="decimal-pad"
-            value={amount}
-            placeholder="10"
+            style={{
+              borderBottomColor: 'black',
+              borderWidth: 1,
+              width: '100%',
+              padding: 10,
+            }}
+            value={recipientAddress}
+            onChangeText={text => setRecipientAddress(text)}
           />
         </View>
-
-        <View>
-          <Text>Recipient</Text>
-          <TextInput value={recipientAddress} placeholder="abc123" />
+        <View style={{padding: 10}}>
+          <Text>Amount</Text>
+          <TextInput
+            keyboardType="decimal-pad"
+            style={{
+              borderBottomColor: 'black',
+              borderWidth: 1,
+              width: '100%',
+              padding: 10,
+            }}
+            value={amount}
+            placeholder="10"
+            onChangeText={text => setAmount(text)}
+          />
         </View>
-
-        <Button title="Send Coins" onPress={sendCoins} />
+        <View style={{padding: 10}}>
+          <Button title="Send Coins" onPress={sendCoins} />
+        </View>
       </>
     </TemplateScreen>
   )

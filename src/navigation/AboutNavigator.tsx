@@ -20,10 +20,10 @@ export const AboutStackNavigator = () => {
         name={Routes.CreateAccount}
         component={CreateAccountScreen}
       />
-      <Stack.Screen
+      {/* <Stack.Screen
         name={Routes.ExportAccount}
         component={ExportAccountScreen}
-      />
+      /> */}
       <Stack.Screen
         name={Routes.ImportAccount}
         component={ImportAccountScreen}

@@ -7,7 +7,7 @@ export enum Routes {
   Camera = "Camera",
 
   About = "About",
-  AboutStack = "AboutSack",
+  AboutStack = "AboutStack",
   CreateAccount = "CreateAccount",
   ExportAccount = "ExportAccount",
   ImportAccount = "ImportAccount",

@@ -22,8 +22,6 @@ import {RootState} from '@store/store'
 export const CreateAccountScreen = () => {
   const dispatch = useDispatch()
 
-  const accounts = useSelector((state: RootState) => state.accounts)
-
   const createAccount = async () => {
     const account = new Account()
 
@@ -38,10 +36,6 @@ export const CreateAccountScreen = () => {
     await dispatch(storeAccountToEncryptedStorage(accountPayload))
   }
 
-  const fetchAccounts = async () => {
-    await dispatch(fetchEncryptedAccounts())
-  }
-
   const clear = async () => {
     await dispatch(clearAccounts())
   }
@@ -51,11 +45,7 @@ export const CreateAccountScreen = () => {
       <>
         <View style={{padding: 10}}>
           <Button onPress={createAccount} title="Create Account" />
-
-          <Button onPress={fetchAccounts} title="fetchAccounts" />
-          <Button onPress={clear} title="clear" />
-
-          <Text>{JSON.stringify(accounts, null, 2)}</Text>
+          <Button onPress={clear} title="Remove All Accounts" />
         </View>
       </>
     </TemplateScreen>

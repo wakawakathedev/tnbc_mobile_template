@@ -6,34 +6,29 @@
 
 import React, {useEffect, useState} from 'react'
 import {Text, View} from 'react-native'
-import {useSelector} from 'react-redux'
-import {PrimaryValidator} from 'thenewboston/src/primary-validator'
+import {useDispatch, useSelector} from 'react-redux'
 
+import {fetchAllBalances} from '@store/Accounts/AccountsSlice'
 import {RootState} from '@store/store'
 import {Card} from '@ui/Card'
 import {formatUrl} from '@utils'
 
 export const AccountBalance: React.FC = () => {
   const [isShown, toggleShow] = useState<boolean>(false)
-  const networks = useSelector((state: RootState) => state.networks)
   const accounts = useSelector((state: RootState) => state.accounts)
 
   const [balance, setBalance] = useState<number>(0)
-
-  const getBalance = async () => {
-    const {protocol, address} = networks.Testnet.PRIMARY_VALIDATOR
-    const url = formatUrl(protocol, address)
-    const primaryValidator = new PrimaryValidator(url)
-
+  const getBalance = () => {
     // networks
-    // const response = await primaryValidator.getAccountBalance('')
-    // if (response?.balance) {
-    //   setBalance(response.balance)
-    // }
+    return Object.values(accounts).reduce(
+      (acc, account) => (acc += account?.balance ?? 0),
+      0,
+    )
   }
 
   useEffect(() => {
-    getBalance()
+    const _balance = getBalance()
+    setBalance(_balance)
   }, [accounts])
 
   return (
@@ -49,7 +44,9 @@ export const AccountBalance: React.FC = () => {
         </>
       }>
       <View>
-        <Text>{Object.keys(accounts).length}</Text>
+        {Object.keys(accounts).map(account => (
+          <Text selectable={true}>{account}</Text>
+        ))}
       </View>
     </Card>
   )

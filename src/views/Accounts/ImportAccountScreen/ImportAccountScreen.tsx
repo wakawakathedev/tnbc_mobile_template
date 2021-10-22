@@ -1,10 +1,10 @@
 import React, {useState} from 'react'
 import {Text, TextInput, View} from 'react-native'
-import {useSelector, useDispatch} from 'react-redux'
+import {useDispatch} from 'react-redux'
 
 import {Account} from 'thenewboston'
-import {Button} from '@ui/Button'
 
+import {Button} from '@ui/Button'
 import {TemplateScreen} from '@views/utils/TemplateScreen'
 
 import {storeAccountToEncryptedStorage} from '@store/Accounts/AccountsSlice'
@@ -28,13 +28,16 @@ export const ImportAccountScreen = () => {
     }
 
     await dispatch(storeAccountToEncryptedStorage(accountPayload))
+
+    setImportKey('')
+    setNickname('')
   }
 
   return (
     <TemplateScreen>
       <>
         <View style={{padding: 10}}>
-          <Text>import</Text>
+          <Text>Import</Text>
           <TextInput
             style={{
               borderBottomColor: 'black',
@@ -43,6 +46,7 @@ export const ImportAccountScreen = () => {
               padding: 10,
             }}
             value={importKey}
+            secureTextEntry={true}
             onChangeText={text => setImportKey(text)}
           />
         </View>

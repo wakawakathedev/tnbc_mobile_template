@@ -13,6 +13,7 @@ type Props = NativeStackScreenProps<AccountStackParams, 'AccountOverview'>
 type AboutItem = {
   title: string
   destination: Routes
+  disabled?: boolean
   params?: any
 }
 
@@ -25,13 +26,15 @@ const AboutItems: AboutItem[] = [
     title: 'Create Account',
     destination: Routes.CreateAccount,
   },
-  {
-    title: 'Export Account',
-    destination: Routes.ExportAccount,
-  },
+
   {
     title: 'Send Coins',
     destination: Routes.SendCoins,
+  },
+  {
+    title: 'Export Account',
+    destination: Routes.ExportAccount,
+    disabled: true,
   },
 ]
 
@@ -63,13 +66,21 @@ const AboutItem = ({item, navigation}: AboutItemProps) => {
   return (
     <Pressable
       onPress={() => navigation.navigate(item.destination, item.params)}
-      style={({pressed}) => [{opacity: pressed ? 0.5 : 1}, styles.button]}>
-      <Text style={styles.buttonText}>{item.title}</Text>
-      <Icon
-        name="chevron-right"
-        size={20}
-        style={{display: 'flex', alignSelf: 'flex-end'}}
-      />
+      style={({pressed}) => [{opacity: pressed ? 0.5 : 1}, styles.button]}
+      disabled={item?.disabled}>
+      <View style={{flex: 1}}>
+        <Text style={styles.buttonText}>{item.title}</Text>
+        {item.disabled && (
+          <Text style={{fontSize: 10}}>Not availble (Coming soon)</Text>
+        )}
+      </View>
+      <View>
+        <Icon
+          name="chevron-right"
+          size={20}
+          style={{display: 'flex', alignSelf: 'flex-end'}}
+        />
+      </View>
     </Pressable>
   )
 }

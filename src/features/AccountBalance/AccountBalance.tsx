@@ -45,7 +45,9 @@ export const AccountBalance: React.FC = () => {
       }>
       <View>
         {Object.keys(accounts).map(account => (
-          <Text selectable={true}>{account}</Text>
+          <Text selectable={true} key={account}>
+            {account}
+          </Text>
         ))}
       </View>
     </Card>

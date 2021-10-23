@@ -6,21 +6,21 @@
 
 import React, {useEffect, useState} from 'react'
 import {Text, View} from 'react-native'
-import {useDispatch, useSelector} from 'react-redux'
-
-import {fetchAllBalances} from '@store/Accounts/AccountsSlice'
+import {useSelector} from 'react-redux'
 import {RootState} from '@store/store'
 import {Card} from '@ui/Card'
-import {formatUrl} from '@utils'
+import {Account} from '@store/Accounts/types'
 
 export const AccountBalance: React.FC = () => {
   const [isShown, toggleShow] = useState<boolean>(false)
   const accounts = useSelector((state: RootState) => state.accounts)
 
   const [balance, setBalance] = useState<number>(0)
+
   const getBalance = () => {
     // networks
-    return Object.values(accounts).reduce(
+    const listOfAccounts: Account[] = Object.values(accounts)
+    return listOfAccounts.reduce(
       (acc, account) => (acc += account?.balance ?? 0),
       0,
     )

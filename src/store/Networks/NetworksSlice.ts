@@ -14,7 +14,9 @@ type BankPayload = Node
 
 interface NetworksSlice {
   [networkName: string]: {
-    [node: string]: Node
+    [category: string]: {
+      [node: string]: Node
+    }
   }
 }
 

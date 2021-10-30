@@ -5,12 +5,15 @@ import {styles} from './styles'
 interface Props {
   title: string
   onPress: () => void
+  disabled?: boolean
 }
 
-export const Button: React.FC<Props> = ({title, onPress}) => (
-  <TouchableOpacity onPress={onPress}>
-    <View style={styles.primaryButton}>
-      <Text style={styles.primaryButtonText}>{title}</Text>
+export const Button: React.FC<Props> = ({disabled, title, onPress}) => (
+  <TouchableOpacity onPress={onPress} disabled={disabled}>
+    <View style={[styles.primaryButton, disabled && styles.disabled]}>
+      <Text style={[styles.primaryButtonText, disabled && styles.disabled]}>
+        {title}
+      </Text>
     </View>
   </TouchableOpacity>
 )

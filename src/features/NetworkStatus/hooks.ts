@@ -10,7 +10,7 @@ export const useNetworkStatus = () => {
   const [networkStatus, updateNetworkStatus] = useState<boolean | null>(null)
   const [isLoading, setLoading] = useState<boolean>(false)
 
-  const { protocol, address, nickname } = networks.Testnet.PRIMARY_BANK
+  const { protocol, address, nickname } = networks.Testnet.Banks.PRIMARY_BANK
 
   useEffect(() => {
     const getNetworkStatus = async () => {

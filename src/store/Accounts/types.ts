@@ -1,6 +1,12 @@
 export type Account = {
-  publicKey: string
   privateKey: string
+  publicKey: string
+  nickname: string
+  balance?: number
+}
+
+export type ReduxAccount = {
+  publicKey: string
   nickname: string
   balance?: number
 }

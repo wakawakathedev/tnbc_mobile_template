@@ -67,7 +67,7 @@ export const clearAccounts = createAsyncThunk('accounts/clear', async (_, { disp
 export const fetchAllBalances = createAsyncThunk('accounts/fetch-balances', async (_, { dispatch, getState }) => {
   try {
     const state = getState() as RootState
-    const { protocol, address } = state.networks.Testnet.PRIMARY_VALIDATOR
+    const { protocol, address } = state.networks.Testnet.Validators.PRIMARY_VALIDATOR
     const url = formatUrl(protocol, address)
     const primaryValidator = new PrimaryValidator(url)
 

@@ -36,6 +36,9 @@ export const CreateAccountScreen = () => {
     await dispatch(storeAccountToEncryptedStorage(accountPayload))
   }
 
+  // Todo:
+  const startEncrypting = () => {}
+
   const clear = async () => {
     await dispatch(clearAccounts())
   }
@@ -47,6 +50,10 @@ export const CreateAccountScreen = () => {
           <Button onPress={createAccount} title="Create Account" />
           <Button onPress={clear} title="Remove All Accounts" />
         </View>
+
+        <>
+          <Button onPress={startEncrypting} title="Remove All Accounts" />
+        </>
       </>
     </TemplateScreen>
   )

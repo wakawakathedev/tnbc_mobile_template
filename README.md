@@ -10,6 +10,14 @@ There are some minor getting started issues with the mobile wallet (as of 03-Sep
 
 ![App-Features](./docs/app-features.png)
 
+### Milestones:
+
+View docs milestones for specific features that are done + changelog
+```
+/docs
+  /milestones
+    01.md
+```
 
 ## Getting Started
 

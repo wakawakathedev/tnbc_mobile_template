@@ -12,6 +12,11 @@ export const styles = StyleSheet.create({
     width: '50%',
     alignSelf: 'center',
   },
+  disabled: {
+    borderColor: Colors.grey,
+    color: Colors.grey,
+    opacity: 0.7
+  },
   primaryButtonText: {
     fontWeight: 'bold',
   },
